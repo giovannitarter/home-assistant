@@ -22,6 +22,7 @@ SCAN_INTERVAL = 300  # seconds
 SERVICE_NETGEAR = 'netgear_router'
 SERVICE_WEMO = 'belkin_wemo'
 SERVICE_HASS_IOS_APP = 'hass_ios'
+ESP_THERMOSTAT = 'esp_thermostat'
 
 SERVICE_HANDLERS = {
     SERVICE_HASS_IOS_APP: ('ios', None),
@@ -36,6 +37,7 @@ SERVICE_HANDLERS = {
     'yamaha': ('media_player', 'yamaha'),
     'logitech_mediaserver': ('media_player', 'squeezebox'),
     'directv': ('media_player', 'directv'),
+    ESP_THERMOSTAT: ('espthermostat', None),
 }
 
 CONFIG_SCHEMA = vol.Schema({
