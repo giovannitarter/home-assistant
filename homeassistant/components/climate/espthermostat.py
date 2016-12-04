@@ -30,6 +30,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     target_temp = 17
     ac_mode = False
     min_cycle_duration = timedelta(seconds = 10)
+    tolerance = 0.3
     
     add_devices([
         gt.GenericThermostat(
@@ -41,7 +42,8 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
             max_temp,
             target_temp, 
             ac_mode, 
-            min_cycle_duration
+            min_cycle_duration,
+            tolerance,
             )
         ]
         )

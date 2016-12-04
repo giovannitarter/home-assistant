@@ -12,7 +12,7 @@ from homeassistant.components import switch
 from homeassistant.components.climate import (
     STATE_HEAT, STATE_COOL, STATE_IDLE, ClimateDevice, PLATFORM_SCHEMA)
 from homeassistant.const import (
-    ATTR_UNIT_OF_MEASUREMENT, STATE_ON, STATE_OFF, ATTR_TEMPERATURE)
+    ATTR_UNIT_OF_MEASUREMENT, STATE_ON, STATE_OFF, ATTR_TEMPERATURE, STATE_UNKNOWN)
 from homeassistant.helpers import condition
 from homeassistant.helpers.event import track_state_change
 import homeassistant.helpers.config_validation as cv
@@ -168,6 +168,9 @@ class GenericThermostat(ClimateDevice):
     def _update_temp(self, state):
         """Update thermostat with latest state from sensor."""
         unit = state.attributes.get(ATTR_UNIT_OF_MEASUREMENT)
+        
+        if state.state == STATE_UNKNOWN:
+            return
 
         try:
             self._cur_temp = self.hass.config.units.temperature(
