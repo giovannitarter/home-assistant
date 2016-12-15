@@ -1,4 +1,5 @@
 import homeassistant.components.sensor.mqtt as mqse
+from homeassistant.const import TEMP_CELSIUS
 
 shortNames = {
         "temperature" : "temp",
@@ -6,7 +7,7 @@ shortNames = {
 }
 
 measure_unit = {
-        "temperature" : "C",
+        "temperature" : TEMP_CELSIUS,
         "humidity" : "%",
 }
 
