@@ -38,6 +38,11 @@ def setup(hass, config):
             "type" : "temperature",
             "name" : devicename,
             })
+        
+        load_platform(hass, 'climate', DOMAIN, {
+            "name" : devicename,
+            "deviceid" : deviceid,
+            })
 
     
     hldisco.listen(
